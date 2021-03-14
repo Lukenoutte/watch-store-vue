@@ -2,8 +2,8 @@
   <div class="item">
     <div class="image"></div>
     <div>
-      <p class="name">Item name</p>
-      <p class="price">R$ Price</p>
+      <p class="name">{{name}}</p>
+      <p class="price">R$ {{price}}</p>
     </div>
     <button>ADD TO CARD</button>
   </div>
@@ -13,12 +13,16 @@
 <script>
 export default {
   name: "Item",
+  props: {
+    image: { type: String, required: true },
+    name: { type: String, required: true },
+    price: { type: String, required: true },
+  },
 };
 </script>
 
 
 <style scoped>
-
 .item {
   display: flex;
   flex-direction: column;
@@ -35,7 +39,7 @@ button {
   border-radius: 5px;
   border: none;
   background: aquamarine;
-  color: #FFF;
+  color: #fff;
   font-weight: bolder;
 }
 
@@ -55,5 +59,4 @@ button {
   font-weight: bold;
   font-size: 19px;
 }
-
 </style>

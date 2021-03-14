@@ -3,12 +3,10 @@
     <AppHeader />
     <div class="main-container">
       <ul class="itens-ul">
-        <li><Item /></li>
-        <li><Item /></li>
-        <li><Item /></li>
-        <li><Item /></li>
-        <li><Item /></li>
-        <li><Item /></li>
+        <li v-for="(item, index) in itensArray" :key="index">
+          <Item :name="item.name" :price="item.price" />
+          {{ item.id }}
+        </li>
       </ul>
     </div>
     <footer></footer>
@@ -21,6 +19,17 @@ export default {
   components: {
     AppHeader: () => import("./components/AppHeader"),
     Item: () => import("./components/Item"),
+  },
+  data() {
+    return {
+      itensArray: [
+        { image: "/", name: "Shoes", price: "10" },
+        { image: "/", name: "Table", price: "30" },
+        { image: "/", name: "Coath", price: "30" },
+        { image: "/", name: "Notebook", price: "100" },
+        { image: "/", name: "TV", price: "100" },
+      ],
+    };
   },
 };
 </script>
