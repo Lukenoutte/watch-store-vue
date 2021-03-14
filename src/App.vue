@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <app-header />
-    <router-view />
-    <footer/>
+    <div class="main-container">
+      <router-view />
+    </div>
+    <footer />
   </div>
 </template>
 
@@ -17,15 +19,19 @@ export default {
 
 
 <style>
-
-#app{
-    background-color: azure;
+#app {
+  background-color: azure;
+  min-height: 100vh;
 }
 
 body,
 input,
 button {
   font: 14px "Poppins", sans-serif;
+}
+
+.main-container {
+  padding: 0 100px;
 }
 
 * {

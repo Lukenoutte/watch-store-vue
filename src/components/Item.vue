@@ -2,21 +2,24 @@
   <div class="item">
     <div class="image"></div>
     <div>
-      <p class="name">{{name}}</p>
-      <p class="price">R$ {{price}}</p>
+      <p class="name">{{ itemProp.name }}</p>
+      <p class="price">R$ {{ itemProp.price }}</p>
     </div>
-    <button>ADD TO CARD</button>
+    <button @click="addItemToCart(itemProp.id)">ADD TO CART</button>
   </div>
 </template>
 
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
   name: "Item",
   props: {
-    image: { type: String, required: true },
-    name: { type: String, required: true },
-    price: { type: String, required: true },
+    itemProp: { type: Object, required: true },
+  },
+  methods: {
+    ...mapMutations(["addItemToCart"]),
   },
 };
 </script>
@@ -28,7 +31,7 @@ export default {
   flex-direction: column;
   padding: 20px;
   background: white;
-  width: 280px;
+  min-width: 280px;
   border-radius: 5px;
   box-shadow: rgb(0 0 0 / 25%) 0px 2px 4px;
 }

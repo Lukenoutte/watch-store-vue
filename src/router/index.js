@@ -11,11 +11,12 @@ const routes = [
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import( '../views/About.vue')
+    path: '/cart',
+    name: 'Cart',
+    component: () => import( '../views/Cart.vue')
   }
 ]
+
 
 const router = new VueRouter({
   mode: 'history',

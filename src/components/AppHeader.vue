@@ -1,7 +1,7 @@
 <template>
   <header>
-    <p>Logo</p>
-    <div>Card</div>
+    <router-link to="/">Logo</router-link>
+    <router-link to="/cart">Cart</router-link>
   </header>
 </template>
 
