@@ -31,7 +31,6 @@ export default {
   flex-direction: column;
   padding: 20px;
   background: var(--white-color);
-  min-width: 280px;
   border-radius: 5px;
   box-shadow: rgb(0 0 0 / 25%) 0px 2px 4px;
 }
@@ -51,8 +50,8 @@ button {
 }
 
 img {
-  width: 240px;
-  height: 240px;
+  width: 300px;
+  height: 300px;
   transition: all 0.3s ease 0s;
 }
 

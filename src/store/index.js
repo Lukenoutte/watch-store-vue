@@ -30,9 +30,14 @@ const store = new Vuex.Store({
         addItemToCart: (state, id) => {
             let itemToAdd = state.itensArray.find(itemInArray => itemInArray.id === id);
             state.cartItens.push(itemToAdd);
-            console.log(state.cartItens);
+
+        },
+
+        removeItemToCart: (state, id) => {
+            let indexToRemove = state.cartItens.findIndex(itemInArray => itemInArray.id === id);
+            Vue.delete(state.cartItens, indexToRemove);
         }
-    }
+    },
 })
 
 export { store };

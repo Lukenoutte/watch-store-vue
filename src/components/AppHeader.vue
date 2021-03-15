@@ -1,7 +1,7 @@
 <template>
   <header>
     <router-link class="logo" to="/">Lokenoutte Store</router-link>
-    <router-link to="/cart">Cart</router-link>
+    <router-link class="cart" to="/cart">Cart</router-link>
   </header>
 </template>
 
@@ -16,7 +16,6 @@ export default {
 <style scoped>
 header {
   height: 90px;
-  padding: 0 100px;
   display: flex;
   align-items: center;
   margin-bottom: 30px;
@@ -26,6 +25,11 @@ header {
   color: var(--white-color);
   font-weight: bold;
   font-size: 20px;
+}
+
+.cart{
+  color: var(--white-color);
+  font-weight: bold;
 }
 
 </style>

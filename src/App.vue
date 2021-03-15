@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <app-header />
     <div class="main-container">
+      <app-header />
       <router-view />
+      <footer />
     </div>
-    <footer />
   </div>
 </template>
 
@@ -21,12 +21,14 @@ export default {
 <style>
 :root {
   --primary-color: #3c3c3c;
-  --white-color: #FFF;
+  --white-color: #fff;
 }
 
 #app {
   background-color: var(--primary-color);
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 body,
@@ -37,6 +39,8 @@ button {
 
 .main-container {
   padding: 0 100px;
+  max-width: 1300px;
+  width: 100vw;
 }
 
 * {

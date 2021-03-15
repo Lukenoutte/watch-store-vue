@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div>
     <ul class="itens-ul">
       <li v-for="item in itensArray" :key="item.id">
         <item :itemProp="item" />
@@ -27,13 +27,10 @@ export default {
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap");
 
-.home {
-  height: 100%;
-}
 
 .itens-ul {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 13px;
 }
 </style>
