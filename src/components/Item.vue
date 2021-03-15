@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <div class="image"></div>
+    <img :src="itemProp.image" alt="watch">
     <div>
       <p class="name">{{ itemProp.name }}</p>
       <p class="price">R$ {{ itemProp.price }}</p>
@@ -30,26 +30,30 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  background: white;
+  background: var(--white-color);
   min-width: 280px;
   border-radius: 5px;
   box-shadow: rgb(0 0 0 / 25%) 0px 2px 4px;
 }
 
+.item:hover img {
+  transform: scale(1.1);
+}
+
 button {
   height: 40px;
-  margin-top: 30px;
+  margin-top: 20px;
   border-radius: 5px;
   border: none;
-  background: aquamarine;
-  color: #fff;
+  background: var(--primary-color);
+  color: var(--white-color);
   font-weight: bolder;
 }
 
-.image {
-  background: aquamarine;
-  width: 100%;
-  height: 200px;
+img {
+  width: 240px;
+  height: 240px;
+  transition: all 0.3s ease 0s;
 }
 
 .name {
@@ -58,7 +62,7 @@ button {
 }
 
 .price {
-  margin-top: 8px;
+  margin-top: 2px;
   font-weight: bold;
   font-size: 19px;
 }

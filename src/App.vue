@@ -19,8 +19,13 @@ export default {
 
 
 <style>
+:root {
+  --primary-color: #3c3c3c;
+  --white-color: #FFF;
+}
+
 #app {
-  background-color: azure;
+  background-color: var(--primary-color);
   min-height: 100vh;
 }
 
