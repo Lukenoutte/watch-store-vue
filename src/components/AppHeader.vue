@@ -1,14 +1,20 @@
 <template>
   <header>
     <router-link class="logo" to="/">Lokenoutte Store</router-link>
-    <router-link class="cart" to="/cart">Cart</router-link>
+    <router-link class="cart" to="/cart">Cart  {{cartItens.length}}</router-link>
   </header>
 </template>
 
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "AppHeader",
+  computed: {
+    ...mapState({
+      cartItens: (state) => state.cartItens,
+    }),
+  },
 };
 </script>
 
@@ -21,15 +27,14 @@ header {
   margin-bottom: 30px;
   justify-content: space-between;
 }
-.logo{
+.logo {
   color: var(--white-color);
   font-weight: bold;
   font-size: 20px;
 }
 
-.cart{
+.cart {
   color: var(--white-color);
   font-weight: bold;
 }
-
 </style>

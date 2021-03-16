@@ -24,12 +24,12 @@ const store = new Vuex.Store({
             { id: 6, image: watch7, name: "Watch 07", price: "99,90" },
             { id: 7, image: watch8, name: "Watch 08", price: "99,90" },
         ],
-        cartItens: []
+        cartItens: [],
     },
     mutations: {
         addItemToCart: (state, id) => {
             let itemToAdd = state.itensArray.find(itemInArray => itemInArray.id === id);
-            state.cartItens.push(itemToAdd);
+            state.cartItens.push({ ...itemToAdd, quantity: 1 });
 
         },
 
