@@ -1,7 +1,7 @@
 <template>
   <header>
     <router-link class="logo" to="/">Lokenoutte Store</router-link>
-    <router-link class="cart" to="/cart">Cart  {{cartItens.length}}</router-link>
+    <router-link class="cart" to="/cart">Cart  {{countItensCart}}</router-link>
   </header>
 </template>
 
@@ -12,7 +12,7 @@ export default {
   name: "AppHeader",
   computed: {
     ...mapState({
-      cartItens: (state) => state.cartItens,
+      countItensCart: (state) => state.countItensCart,
     }),
   },
 };

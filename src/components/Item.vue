@@ -5,7 +5,7 @@
       <p class="name">{{ itemProp.name }}</p>
       <p class="price">R$ {{ itemProp.price }}</p>
     </div>
-    <button @click="addItemToCart(itemProp.id)">ADD TO CART</button>
+    <button @click="addItemToCart(itemProp)">ADD TO CART</button>
   </div>
 </template>
 

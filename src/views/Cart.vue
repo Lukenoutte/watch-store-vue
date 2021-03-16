@@ -5,7 +5,7 @@
       <router-link to="/"> CONTINUE SHOPPING </router-link>
     </div>
     <div v-else>
-      <div class="item-cart" v-for="item in cartItens" :key="item.id">
+      <div class="item-cart" v-for="(item, index) in cartItens" :key="item.id">
         <ul>
           <li>
             <img :src="item.image" alt="watch" />
@@ -14,15 +14,19 @@
             <p>{{ item.name }}</p>
             <p>{{ item.price }}</p>
           </li>
-          <li>Quatity  {{item.quantity}}</li>
+          <li>Quatity {{ item.quantity }}</li>
           <li>
-            Sub <button @click="removeItemToCart(item.id)">Delete</button>
+            Sub {{ item.subtotal
+            }}<button @click="removeItemToCart(index)">Delete</button>
           </li>
         </ul>
       </div>
     </div>
 
-    <div v-if="cartItens.length > 0"  class="total-container"> <span> TOTAL </span> <strong>R$ 200</strong></div>
+    <div v-if="cartItens.length > 0" class="total-container">
+      <span> TOTAL </span>
+      <strong> R$ {{ total($store.state.cartItens) }}</strong>
+    </div>
   </div>
 </template>
 
@@ -37,13 +41,24 @@ export default {
   },
   methods: {
     ...mapMutations(["removeItemToCart"]),
+
+    total: (cartItens) => {
+      if (cartItens.length > 1) {
+        let total = cartItens.reduce(
+          (sum, cur) => sum + parseFloat(cur.subtotal),
+          0
+        );
+        return total.toFixed(2);
+      } else {
+        return cartItens[0].subtotal;
+      }
+    },
   },
 };
 </script>
 
 <style scoped>
-
-.cart{
+.cart {
   position: relative;
   padding-bottom: 150px;
 }
@@ -72,7 +87,7 @@ export default {
   margin-top: 20px;
 }
 
-.item-cart ul{
+.item-cart ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   align-items: center;
@@ -83,13 +98,13 @@ li img {
   height: 120px;
 }
 
-li button{
+li button {
   margin-left: 70px;
 }
 
-.total-container{
+.total-container {
   background-color: var(--white-color);
-  width: 200px;
+  width: 250px;
   height: 100px;
   display: flex;
   align-items: center;
@@ -101,9 +116,8 @@ li button{
   right: 0;
 }
 
-.total-container strong{
+.total-container strong {
   margin-left: 10px;
   font-size: 25px;
 }
-
 </style>
