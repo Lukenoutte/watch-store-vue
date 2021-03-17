@@ -16,14 +16,14 @@ import watch8 from "@/assets/images/watch_8.png";
 const store = new Vuex.Store({
     state: {
         itensArray: [
-            { id: 0, image: watch1, name: "Watch 01", price: 10.90 },
-            { id: 1, image: watch2, name: "Watch 02", price: 30.90 },
-            { id: 2, image: watch3, name: "Watch 03", price: 30.90 },
-            { id: 3, image: watch4, name: "Watch 04", price: 100.00 },
-            { id: 4, image: watch5, name: "Watch 05", price: 99.90 },
-            { id: 5, image: watch6, name: "Watch 06", price: 99.90 },
-            { id: 6, image: watch7, name: "Watch 07", price: 99.90 },
-            { id: 7, image: watch8, name: "Watch 08", price: 99.90 },
+            { id: 0, image: watch1, name: "Watch 01", price: 10.90, stock: 5 },
+            { id: 1, image: watch2, name: "Watch 02", price: 30.90, stock: 10 },
+            { id: 2, image: watch3, name: "Watch 03", price: 30.90, stock: 20 },
+            { id: 3, image: watch4, name: "Watch 04", price: 100.00, stock: 3 },
+            { id: 4, image: watch5, name: "Watch 05", price: 99.90, stock: 10 },
+            { id: 5, image: watch6, name: "Watch 06", price: 99.90, stock: 5 },
+            { id: 6, image: watch7, name: "Watch 07", price: 98.90, stock: 6 },
+            { id: 7, image: watch8, name: "Watch 08", price: 87.90, stock: 5 },
         ],
         cartItens: [],
         countItensCart: 0,
@@ -31,19 +31,20 @@ const store = new Vuex.Store({
     mutations: {
 
         addItemToCart: (state, item) => {
-            let itemToAddExist = state.cartItens.find(cartItem => cartItem.id === item.id);
+            let itemExist = state.cartItens.find(cartItem => cartItem.id === item.id);
 
-            if (itemToAddExist) {
-                itemToAddExist.quantity++;
+            if (itemExist && itemExist.stock > 1) {
+                itemExist.quantity++;
+                itemExist.stock--;
+                itemExist.subtotal = subtotalValue(itemExist.price, itemExist.quantity);
+                state.countItensCart++;
 
-                let index = state.cartItens.indexOf(itemToAddExist);
-                state.cartItens[index].subtotal = subtotalValue(item.price, item.quantity);
-
-            } else {
+            } else if (!itemExist) {
                 state.cartItens.push({ ...item, quantity: 1, subtotal: item.price });
+                state.countItensCart++;
             }
 
-            state.countItensCart++;
+
         },
 
         removeItemToCart: (state, index) => {
@@ -53,22 +54,22 @@ const store = new Vuex.Store({
         },
 
         addOneToQuantity: (state, index) => {
-            state.countItensCart++;
-            state.cartItens[index].quantity++;
-
             let item = state.cartItens[index];
-            state.cartItens[index].subtotal = subtotalValue(item.price, item.quantity);
-
-
+            if (item.stock > 1) {
+                state.countItensCart++;
+                item.stock--;
+                item.quantity++;
+                item.subtotal = subtotalValue(item.price, item.quantity);
+            }
         },
         removeOneToQuantity: (state, index) => {
-
-            state.cartItens[index].quantity--;
-            state.countItensCart--;
-
             let item = state.cartItens[index];
-            state.cartItens[index].subtotal = subtotalValue(item.price, item.quantity);
-
+            if (item.quantity > 1) {
+                item.quantity--;
+                item.stock++;
+                state.countItensCart--;
+                item.subtotal = subtotalValue(item.price, item.quantity);
+            }
         }
     },
 })
