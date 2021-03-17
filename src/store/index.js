@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { subtotalValue } from "../helpers";
 
 Vue.use(Vuex)
 
@@ -28,13 +29,15 @@ const store = new Vuex.Store({
         countItensCart: 0,
     },
     mutations: {
+
         addItemToCart: (state, item) => {
             let itemToAddExist = state.cartItens.find(cartItem => cartItem.id === item.id);
 
             if (itemToAddExist) {
                 itemToAddExist.quantity++;
-                let subTotal = itemToAddExist.price * itemToAddExist.quantity;
-                itemToAddExist.subtotal = subTotal.toFixed(2);
+
+                let index = state.cartItens.indexOf(itemToAddExist);
+                state.cartItens[index].subtotal = subtotalValue(item.price, item.quantity);
 
             } else {
                 state.cartItens.push({ ...item, quantity: 1, subtotal: item.price });
@@ -47,6 +50,25 @@ const store = new Vuex.Store({
             let quantity = state.cartItens[index].quantity;
             state.countItensCart = state.countItensCart - quantity;
             Vue.delete(state.cartItens, index);
+        },
+
+        addOneToQuantity: (state, index) => {
+            state.countItensCart++;
+            state.cartItens[index].quantity++;
+
+            let item = state.cartItens[index];
+            state.cartItens[index].subtotal = subtotalValue(item.price, item.quantity);
+
+
+        },
+        removeOneToQuantity: (state, index) => {
+
+            state.cartItens[index].quantity--;
+            state.countItensCart--;
+
+            let item = state.cartItens[index];
+            state.cartItens[index].subtotal = subtotalValue(item.price, item.quantity);
+
         }
     },
 })

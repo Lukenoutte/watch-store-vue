@@ -1,9 +1,9 @@
 <template>
   <div class="item">
-    <img :src="itemProp.image" alt="watch">
+    <img :src="itemProp.image" alt="watch" />
     <div>
       <p class="name">{{ itemProp.name }}</p>
-      <p class="price">R$ {{ itemProp.price }}</p>
+      <p class="price">{{ formatValue(itemProp.price) }}</p>
     </div>
     <button @click="addItemToCart(itemProp)">ADD TO CART</button>
   </div>
@@ -12,7 +12,7 @@
 
 <script>
 import { mapMutations } from "vuex";
-
+import { formatValue } from "../helpers";
 export default {
   name: "Item",
   props: {
@@ -20,6 +20,7 @@ export default {
   },
   methods: {
     ...mapMutations(["addItemToCart"]),
+    formatValue,
   },
 };
 </script>
