@@ -21,7 +21,7 @@ import { formatValue } from "../helpers";
 export default {
   name: "Cart",
   components: {
-    ItensCart: () => import("../components/ItensCart"),
+    ItensCart: () => import("../components/ItensCart/ItensCart.vue"),
   },
   computed: {
     ...mapState({
