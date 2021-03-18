@@ -56,6 +56,12 @@ export default {
   color: var(--primary-color);
   font-weight: bolder;
 }
+
+.amount-container button:hover {
+  background: var(--primary-color);
+  color: var(--white-color);
+}
+
 .amount-container button p {
   line-height: 19px;
 }

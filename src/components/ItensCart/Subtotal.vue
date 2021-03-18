@@ -17,7 +17,7 @@ import { formatValue } from "../../helpers";
 export default {
   name: "Subtotal",
   props: {
-    subtotal: { type: Number, required: true },
+    subtotal: { required: true },
     index: { type: Number, required: true },
   },
   methods: {
@@ -49,6 +49,10 @@ export default {
   padding: 4px 20px;
   border: 0;
   font-weight: bold;
+}
+
+.remove-all-button:hover {
+    background: var(--primary-hover);
 }
 
 .price {

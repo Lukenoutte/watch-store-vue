@@ -1,6 +1,8 @@
 <template>
   <header>
-    <router-link class="logo" to="/">Lokenoutte Store</router-link>
+    <router-link class="logo" to="/">
+      <icon name="stopwatch" />Lokenoutte Store</router-link
+    >
     <router-link class="cart" to="/cart">
       <p>My Cart</p>
       <icon name="shopping-cart" />
@@ -42,6 +44,10 @@ header {
   font-size: 30px;
 }
 
+.logo:hover {
+  color: var(--primary-hover);
+}
+
 .cart {
   color: var(--primary-color);
   font-weight: 500;
@@ -49,6 +55,10 @@ header {
   position: relative;
   display: flex;
   align-items: center;
+}
+
+.cart:hover {
+  color: var(--primary-hover);
 }
 
 .cart p {
@@ -71,21 +81,32 @@ header {
   text-align: center;
 }
 
+.logo .stopwatch {
+  margin-right: 10px;
+}
+
 @media only screen and (max-width: 700px) {
   .logo {
-    font-size: 20px;
+    font-size: 19px;
   }
   .cart {
-    font-size: 15px;
+    font-size: 14px;
+  }
+  .cart p {
+    display: none;
   }
 }
 
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 375px) {
+  .stopwatch {
+    height: 25px;
+  }
+  .shopping-cart {
+    height: 23px;
+  }
   .logo {
-    font-size: 13px;
+    font-size: 16px;
   }
-  .cart {
-    font-size: 13px;
-  }
+
 }
 </style>

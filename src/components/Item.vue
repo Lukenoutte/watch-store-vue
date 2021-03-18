@@ -5,7 +5,13 @@
       <p class="name">{{ itemProp.name }}</p>
       <p class="price">{{ formatValue(itemProp.price) }}</p>
     </div>
-    <button @click="addItemToCart(itemProp)">ADD TO CART</button>
+
+    <button @click="addItemToCart(itemProp)">
+      <div>
+        <icon name="cart-arrow-down" />
+      </div>
+      <p>ADD TO CART</p>
+    </button>
   </div>
 </template>
 
@@ -50,6 +56,35 @@ button {
   background: var(--primary-color);
   color: var(--white-color);
   font-weight: bolder;
+  display: flex;
+  align-items: center;
+}
+
+button:hover {
+  background: var(--primary-hover);
+}
+
+button:hover div {
+  background: var(--dark-primary-hover);
+}
+
+button div {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: var(--dark-primary);
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button p {
+  width: 100%;
+}
+
+button .cart-arrow-down {
+  height: 16px;
 }
 
 img {
@@ -69,7 +104,7 @@ img {
   font-size: 19px;
 }
 
-.name-and-price{
+.name-and-price {
   width: 100%;
 }
 

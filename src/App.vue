@@ -25,6 +25,9 @@ export default {
   --background: #f5f5f7;
   --white-color: #fff;
   --primary-color: #0071e3;
+  --primary-hover: #006cd9;
+  --dark-primary: #0066cc;
+  --dark-primary-hover: #005dba;
   --grey-color: #999999;
   --light-grey: #dddddd;
 }
@@ -34,7 +37,6 @@ export default {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-
 }
 
 body,
@@ -75,14 +77,14 @@ footer {
 }
 
 @media only screen and (max-width: 1240px) {
-.main-container {
-  padding: 0 50px;
-}
+  .main-container {
+    padding: 0 50px;
+  }
 }
 
 @media only screen and (max-width: 700px) {
-.main-container {
-  padding: 0 25px;
-}
+  .main-container {
+    padding: 0 25px;
+  }
 }
 </style>
