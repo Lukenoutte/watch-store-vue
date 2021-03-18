@@ -30,7 +30,7 @@
         <li class="subtotal-container">
           <strong>SUBTOTAL</strong>
           <div>
-            <span class="price"> {{ formatValue(item.subtotal) }}</span>
+            <p class="price">{{ formatValue(item.subtotal) }}</p>
             <button class="remove-all-button" @click="removeItemToCart(index)">
               Delete
             </button>
@@ -133,6 +133,7 @@ li div {
 .price {
   font-weight: 600;
   font-size: 18px;
+  width: 93px;
 }
 
 .remove-one-button {
@@ -145,6 +146,12 @@ li div {
 .product-name {
   font-weight: 500;
 }
+
+.subtotal-container div {
+  display: flex;
+  flex-direction: row;
+}
+
 @media only screen and (max-width: 1240px) {
   .item-cart {
     padding: 3px;
@@ -153,7 +160,6 @@ li div {
     grid-template-columns: 1fr 1fr 1fr 1.5fr;
     grid-gap: 10px;
   }
-
 }
 
 @media only screen and (max-width: 850px) {
@@ -180,7 +186,6 @@ li div {
   }
 
   .subtotal-container div {
-    display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;

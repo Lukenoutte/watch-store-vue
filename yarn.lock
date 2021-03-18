@@ -8074,6 +8074,11 @@ uuid@^3.3.2, uuid@^3.4.0:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
+v-svg-icons@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/v-svg-icons/-/v-svg-icons-1.1.2.tgz#cd4137a809c463191fdea2cc9f2f7939412d5c0e"
+  integrity sha512-Fbfg9OWr+oGqItjXx6vyIAC7ar3/aMqjeOtabZYngSCL/DVVNQvTksoQo03SGmsBd5thXOy3SbP01u1pstbxkA==
+
 v8-compile-cache@^2.0.3:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"
