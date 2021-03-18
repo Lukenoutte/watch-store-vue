@@ -1,7 +1,7 @@
 <template>
   <header>
     <router-link class="logo" to="/">Lokenoutte Store</router-link>
-    <router-link class="cart" to="/cart">Cart  {{countItensCart}}</router-link>
+    <router-link class="cart" to="/cart">Cart  {{cartItens.length}}</router-link>
   </header>
 </template>
 
@@ -12,7 +12,7 @@ export default {
   name: "AppHeader",
   computed: {
     ...mapState({
-      countItensCart: (state) => state.countItensCart,
+      cartItens: (state) => state.cartItens,
     }),
   },
 };
@@ -28,13 +28,23 @@ header {
   justify-content: space-between;
 }
 .logo {
-  color: var(--white-color);
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.cart {
+  color: var(--primary-color);
   font-weight: bold;
   font-size: 20px;
 }
 
+@media only screen and (max-width: 700px) {
+.logo {
+  font-size: 20px;
+}
 .cart {
-  color: var(--white-color);
-  font-weight: bold;
+  font-size: 15px;
+}
 }
 </style>

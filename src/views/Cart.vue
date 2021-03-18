@@ -2,7 +2,7 @@
   <div class="cart">
     <div v-if="cartItens.length === 0" class="cart-container-empty">
       <span> SHOPPING CART IS EMPTY </span>
-      <router-link to="/"> CONTINUE SHOPPING </router-link>
+      <router-link  class="button-empty" to="/"> CONTINUE SHOPPING </router-link>
     </div>
     <div v-else>
       <itens-cart />
@@ -56,7 +56,7 @@ export default {
   background: var(--white-color);
   border-radius: 5px;
   box-shadow: rgb(0 0 0 / 25%) 0px 2px 4px;
-  height: 350px;
+  height: 450px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -81,4 +81,24 @@ export default {
   margin-left: 10px;
   font-size: 25px;
 }
+
+.total-container span{
+  font-weight: 500;
+  color: var(--grey-color);
+}
+
+.button-empty{
+  background: var(--primary-color);
+  border-radius: 5px;
+  color: var(--white-color);
+  padding: 10px 20px;
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 700px) {
+  .total-container {
+    width: 100%;
+  }
+}
+
 </style>

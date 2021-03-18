@@ -26,7 +26,6 @@ const store = new Vuex.Store({
             { id: 7, image: watch8, name: "Watch 08", price: 87.90, stock: 5 },
         ],
         cartItens: [],
-        countItensCart: 0,
     },
     mutations: {
 
@@ -34,41 +33,37 @@ const store = new Vuex.Store({
             let itemExist = state.cartItens.find(cartItem => cartItem.id === item.id);
 
             if (itemExist && itemExist.stock > 1) {
-                itemExist.quantity++;
+                itemExist.quantityOnCart++;
                 itemExist.stock--;
-                itemExist.subtotal = subtotalValue(itemExist.price, itemExist.quantity);
-                state.countItensCart++;
+                itemExist.subtotal = subtotalValue(itemExist.price, itemExist.quantityOnCart);
+                
 
             } else if (!itemExist) {
-                state.cartItens.push({ ...item, quantity: 1, subtotal: item.price });
-                state.countItensCart++;
+                state.cartItens.push({ ...item, quantityOnCart: 1, subtotal: item.price });
+                
             }
 
 
         },
 
         removeItemToCart: (state, index) => {
-            let quantity = state.cartItens[index].quantity;
-            state.countItensCart = state.countItensCart - quantity;
             Vue.delete(state.cartItens, index);
         },
 
         addOneToQuantity: (state, index) => {
             let item = state.cartItens[index];
             if (item.stock > 1) {
-                state.countItensCart++;
                 item.stock--;
-                item.quantity++;
-                item.subtotal = subtotalValue(item.price, item.quantity);
+                item.quantityOnCart++;
+                item.subtotal = subtotalValue(item.price, item.quantityOnCart);
             }
         },
         removeOneToQuantity: (state, index) => {
             let item = state.cartItens[index];
-            if (item.quantity > 1) {
-                item.quantity--;
+            if (item.quantityOnCart > 1) {
+                item.quantityOnCart--;
                 item.stock++;
-                state.countItensCart--;
-                item.subtotal = subtotalValue(item.price, item.quantity);
+                item.subtotal = subtotalValue(item.price, item.quantityOnCart);
             }
         }
     },

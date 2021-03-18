@@ -19,13 +19,18 @@ export default {
 
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
 :root {
-  --primary-color: #3c3c3c;
+  --background: #f5f5f7;
   --white-color: #fff;
+  --primary-color: #0071e3;
+  --grey-color: #999999;
+  --light-grey: #dddddd;
 }
 
 #app {
-  background-color: var(--primary-color);
+  background-color: var(--background);
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -67,5 +72,17 @@ button {
 
 footer {
   height: 50px;
+}
+
+@media only screen and (max-width: 1240px) {
+.main-container {
+  padding: 0 50px;
+}
+}
+
+@media only screen and (max-width: 700px) {
+.main-container {
+  padding: 0 25px;
+}
 }
 </style>

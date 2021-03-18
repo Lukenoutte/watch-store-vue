@@ -1,7 +1,7 @@
 <template>
   <div class="item">
     <img :src="itemProp.image" alt="watch" />
-    <div>
+    <div class="name-and-price">
       <p class="name">{{ itemProp.name }}</p>
       <p class="price">{{ formatValue(itemProp.price) }}</p>
     </div>
@@ -30,6 +30,7 @@ export default {
 .item {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 20px;
   background: var(--white-color);
   border-radius: 5px;
@@ -42,6 +43,7 @@ export default {
 
 button {
   height: 40px;
+  width: 100%;
   margin-top: 20px;
   border-radius: 5px;
   border: none;
@@ -65,5 +67,22 @@ img {
   margin-top: 2px;
   font-weight: bold;
   font-size: 19px;
+}
+
+.name-and-price{
+  width: 100%;
+}
+
+@media only screen and (max-width: 1240px) {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .itens-ul {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 </style>
