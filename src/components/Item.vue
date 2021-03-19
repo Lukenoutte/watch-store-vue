@@ -1,6 +1,6 @@
 <template>
   <div class="item">
-    <img :src="itemProp.image" alt="watch" />
+    <img :src="itemProp.image" :alt="itemProp.name" />
     <div class="name-and-price">
       <p class="name">{{ itemProp.name }}</p>
       <p class="price">{{ formatValue(itemProp.price) }}</p>
@@ -96,6 +96,8 @@ img {
 .name {
   margin-top: 30px;
   font-size: 19px;
+  font-weight: 500;
+ 
 }
 
 .price {

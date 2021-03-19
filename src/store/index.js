@@ -16,14 +16,14 @@ import watch8 from "@/assets/images/watch_8.png";
 const store = new Vuex.Store({
     state: {
         itensArray: [
-            { id: 0, image: watch1, name: "Watch 01", price: 10.90, stock: 5 },
-            { id: 1, image: watch2, name: "Watch 02", price: 30.90, stock: 10 },
-            { id: 2, image: watch3, name: "Watch 03", price: 30.90, stock: 20 },
-            { id: 3, image: watch4, name: "Watch 04", price: 100.00, stock: 3 },
-            { id: 4, image: watch5, name: "Watch 05", price: 99.90, stock: 10 },
-            { id: 5, image: watch6, name: "Watch 06", price: 99.90, stock: 5 },
-            { id: 6, image: watch7, name: "Watch 07", price: 98.90, stock: 6 },
-            { id: 7, image: watch8, name: "Watch 08", price: 87.90, stock: 5 },
+            { id: 0, image: watch1, name: "Piaget", price: 60.90, stock: 5 },
+            { id: 1, image: watch2, name: "Cartier", price: 50.90, stock: 10 },
+            { id: 2, image: watch3, name: "Harry Winston", price: 70.90, stock: 20 },
+            { id: 3, image: watch4, name: "Benson", price: 100.00, stock: 3 },
+            { id: 4, image: watch5, name: "Longines", price: 99.90, stock: 10 },
+            { id: 5, image: watch6, name: "Audemars Piguet", price: 99.90, stock: 5 },
+            { id: 6, image: watch7, name: "LeCoultre", price: 98.90, stock: 6 },
+            { id: 7, image: watch8, name: "Omega", price: 87.90, stock: 5 },
         ],
         cartItens: [],
     },

@@ -30,6 +30,7 @@ export default {
   --dark-primary-hover: #005dba;
   --grey-color: #999999;
   --light-grey: #dddddd;
+  --light-back: #333333;
 }
 
 #app {

@@ -4,7 +4,7 @@
     <div>
       <p class="price">{{ formatValue(subtotal) }}</p>
       <button class="remove-all-button" @click="removeItemToCart(index)">
-        Delete
+        DELETE
       </button>
     </div>
   </div>

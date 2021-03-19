@@ -1,13 +1,14 @@
 <template>
   <header>
     <router-link class="logo" to="/">
-      <icon name="stopwatch" />Lokenoutte Store</router-link
+      <icon name="stopwatch" />Lokenoutte</router-link
     >
     <router-link class="cart" to="/cart">
       <p>My Cart</p>
       <icon name="shopping-cart" />
 
       <span>{{ cartItens.length }}</span>
+      <pop-up v-if="cartItens.length > 0" />
     </router-link>
   </header>
 </template>
@@ -23,8 +24,8 @@ export default {
       cartItens: (state) => state.cartItens,
     }),
   },
-  data() {
-    return {};
+  components: {
+    PopUp: () => import("./PopUp"),
   },
 };
 </script>
@@ -59,6 +60,13 @@ header {
 
 .cart:hover {
   color: var(--primary-hover);
+}
+
+.cart:hover .pop-up {
+  opacity: inherit;
+  visibility: visible;
+  transition: all 0.3s ease 0s;
+  transform: translateY(10px);
 }
 
 .cart p {
@@ -107,6 +115,5 @@ header {
   .logo {
     font-size: 16px;
   }
-
 }
 </style>
