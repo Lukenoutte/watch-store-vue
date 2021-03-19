@@ -1,24 +1,28 @@
-# store-vue
+## 🎯 Sobre
 
-## Project setup
-```
-yarn install
-```
+Site fictício de compra de relógios.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+💻 [Site demo](https://watch-store-vue.netlify.app/)
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## 🚀 Tecnologias
 
-### Lints and fixes files
-```
-yarn lint
+- VueJs
+- Vuex
+
+## ✅ Requisitos
+
+Antes de iniciar, você precisa ter [Git](https://git-scm.com) e [Node](https://nodejs.org/en/) instalados.
+
+## 🔌 Iniciando o projeto
+```bash
+$ git clone https://github.com/Lukenoutte/watch-store-vue.git
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 
+
+```bash
+$ cd watch-store-vue
+$ yarn install
+$ yarn start
+# The server will initialize in the <http://localhost:8080>
+```
