@@ -1,13 +1,15 @@
 <template>
   <div class="cart">
     <div v-if="cartItens.length === 0" class="cart-container-empty">
-      <icon name="sad-tear"/>
+      <icon name="sad-tear" />
       <span> SHOPPING CART IS EMPTY </span>
-      <p> You have no products in your shopping cart. </p>
-      <router-link  class="button-empty" to="/"> CONTINUE SHOPPING </router-link>
+      <p>You have no products in your shopping cart.</p>
+      <router-link class="button-empty" to="/"> CONTINUE SHOPPING </router-link>
     </div>
     <div v-else>
-      <itens-cart />
+      <div v-for="(item, index) in cartItens" :key="index">
+        <item-cart :item="item" :index="index"/>
+      </div>
     </div>
 
     <div v-if="cartItens.length > 0" class="total-container">
@@ -23,7 +25,7 @@ import { formatValue } from "../helpers";
 export default {
   name: "Cart",
   components: {
-    ItensCart: () => import("../components/ItensCart/ItensCart.vue"),
+    ItemCart: () => import("../components/ItemCart/ItemCart.vue"),
   },
   computed: {
     ...mapState({
@@ -42,7 +44,7 @@ export default {
         return cartItens[0].subtotal;
       }
     },
-    formatValue
+    formatValue,
   },
 };
 </script>
@@ -65,13 +67,13 @@ export default {
   align-items: center;
 }
 
-.cart-container-empty span{
+.cart-container-empty span {
   font-weight: 600;
   font-size: 30px;
   color: var(--light-back);
 }
 
-.cart-container-empty p{
+.cart-container-empty p {
   color: var(--grey-color);
 }
 
@@ -94,12 +96,12 @@ export default {
   font-size: 25px;
 }
 
-.total-container span{
+.total-container span {
   font-weight: 500;
   color: var(--grey-color);
 }
 
-.button-empty{
+.button-empty {
   background: var(--primary-color);
   border-radius: 5px;
   color: var(--white-color);
@@ -108,11 +110,11 @@ export default {
   font-weight: 600;
 }
 
-.button-empty:hover{
+.button-empty:hover {
   background: var(--primary-hover);
 }
 
-.sad-tear{
+.sad-tear {
   height: 150px;
   width: 150px;
   margin-bottom: 30px;
@@ -124,24 +126,24 @@ export default {
     width: 100%;
   }
 
-  .sad-tear{
-  height: 100px;
-  width: 100px;
+  .sad-tear {
+    height: 100px;
+    width: 100px;
   }
 
-  .cart-container-empty span{
-  font-size: 18px;
+  .cart-container-empty span {
+    font-size: 18px;
   }
-  .cart-container-empty p{
+  .cart-container-empty p {
     font-size: 12px;
   }
 }
 
 @media only screen and (max-width: 280px) {
-  .cart-container-empty span{
-  font-size: 14px;
+  .cart-container-empty span {
+    font-size: 14px;
   }
-  .cart-container-empty p{
+  .cart-container-empty p {
     display: none;
   }
 }

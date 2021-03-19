@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="item-cart" v-for="(item, index) in cartItens" :key="item.id">
+
+    <div class="item-cart">
       <ul>
         <li>
           <img :src="item.image" alt="watch" />
@@ -16,18 +16,17 @@
         </li>
       </ul>
     </div>
-  </div>
+
 </template>
 
 <script>
-import { mapState } from "vuex";
+
 import { formatValue } from "../../helpers";
 export default {
-  name: "ItensCart",
-  computed: {
-    ...mapState({
-      cartItens: (state) => state.cartItens,
-    }),
+  name: "ItemCart",
+  props: {
+    item: { type: Object, required: true },
+    index: { type: Number, required: true },
   },
   methods: {
     formatValue,

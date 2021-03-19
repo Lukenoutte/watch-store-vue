@@ -43,6 +43,8 @@ header {
   color: var(--primary-color);
   font-weight: bold;
   font-size: 30px;
+  display: flex;
+  align-items: center;
 }
 
 .logo:hover {

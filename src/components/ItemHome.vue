@@ -21,7 +21,7 @@
 import { mapMutations } from "vuex";
 import { formatValue } from "../helpers";
 export default {
-  name: "Item",
+  name: "ItemHome",
   data(){
     return {
       isLoading: false,

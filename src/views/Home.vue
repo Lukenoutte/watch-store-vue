@@ -2,7 +2,7 @@
   <div>
     <ul class="itens-ul">
       <li v-for="item in itensArray" :key="item.id">
-        <item :itemProp="item" />
+        <item-home :itemProp="item" />
       </li>
     </ul>
   </div>
@@ -14,7 +14,7 @@ import { mapState } from "vuex";
 export default {
   name: "Home",
   components: {
-    Item: () => import("../components/Item"),
+    ItemHome: () => import("../components/ItemHome"),
   },
   computed: {
     ...mapState({
