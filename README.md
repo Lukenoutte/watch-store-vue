@@ -1,6 +1,6 @@
 ## 🎯 Sobre
 
-Site fictício de compra de relógios.
+Site fictício de venda de relógios.
 
 💻 [Site demo](https://watch-store-vue.netlify.app/)
 
