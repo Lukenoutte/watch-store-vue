@@ -10,11 +10,11 @@
 
 <script>
 import { mapState } from "vuex";
-
+import ItemHome from "../components/ItemHome";
 export default {
   name: "Home",
   components: {
-    ItemHome: () => import("../components/ItemHome"),
+    ItemHome
   },
   computed: {
     ...mapState({
