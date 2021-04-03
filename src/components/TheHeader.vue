@@ -1,11 +1,11 @@
 <template>
   <header>
     <router-link class="logo" to="/">
-      <icon name="stopwatch" />Clocknoutte</router-link
+      <icon icon="stopwatch" class="stopwatch" />Clocknoutte</router-link
     >
     <router-link class="cart" to="/cart">
       <p>My Cart</p>
-      <icon name="shopping-cart" />
+      <icon icon="shopping-cart" class="shopping-cart" />
 
       <span>{{ cartItens.length }}</span>
       <pop-up v-if="cartItens.length > 0" />
@@ -64,6 +64,10 @@ header {
   color: var(--primary-hover);
 }
 
+.shopping-cart {
+  font-size: 28px;
+}
+
 .cart:hover .pop-up {
   opacity: inherit;
   visibility: visible;
@@ -93,6 +97,7 @@ header {
 
 .logo .stopwatch {
   margin-right: 10px;
+  font-size: 30px;
 }
 
 @media only screen and (max-width: 700px) {
@@ -108,11 +113,8 @@ header {
 }
 
 @media only screen and (max-width: 375px) {
-  .stopwatch {
-    height: 25px;
-  }
-  .shopping-cart {
-    height: 23px;
+  .logo .stopwatch {
+    font-size: 23px;
   }
   .logo {
     font-size: 16px;

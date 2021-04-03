@@ -18,15 +18,13 @@ export default {
   },
   computed: {
     ...mapState({
-      itensArray: (state) => state.itensArray,
-    }),
-  },
+      itensArray: state => state.itensArray
+    })
+  }
 };
 </script>
 
 <style scoped>
-
-
 .itens-ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

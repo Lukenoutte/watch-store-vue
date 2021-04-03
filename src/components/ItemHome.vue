@@ -6,10 +6,19 @@
       <p class="price">{{ formatValue(itemProp.price) }}</p>
     </div>
 
-    <button @click="addItemToCart(itemProp); loadingControl(isLoading)">
+    <button
+      @click="
+        addItemToCart(itemProp);
+        loadingControl(isLoading);
+      "
+    >
       <div>
-        <loading v-if="isLoading"/>
-        <icon name="cart-arrow-down" v-if="!isLoading" />
+        <loading v-if="isLoading" />
+        <icon
+          icon="cart-arrow-down"
+          class="cart-arrow-down"
+          v-if="!isLoading"
+        />
       </div>
       <p>ADD TO CART</p>
     </button>
@@ -22,25 +31,25 @@ import { mapMutations } from "vuex";
 import { formatValue } from "../helpers";
 export default {
   name: "ItemHome",
-  data(){
+  data() {
     return {
-      isLoading: false,
-    }
+      isLoading: false
+    };
   },
   props: {
-    itemProp: { type: Object, required: true },
+    itemProp: { type: Object, required: true }
   },
   methods: {
     ...mapMutations(["addItemToCart"]),
     formatValue,
-    loadingControl: function (){
+    loadingControl: function() {
       this.isLoading = true;
-      setTimeout(() => this.isLoading = false, 1000);
+      setTimeout(() => (this.isLoading = false), 1000);
     }
   },
   components: {
-    Loading: () => import("./Loading"),
-  },
+    Loading: () => import("./Loading")
+  }
 };
 </script>
 
@@ -97,7 +106,7 @@ button p {
 }
 
 button .cart-arrow-down {
-  height: 16px;
+  font-size: 16px;
 }
 
 img {

@@ -1,14 +1,14 @@
 <template>
   <div class="cart">
     <div v-if="cartItens.length === 0" class="cart-container-empty">
-      <icon name="sad-tear" />
+      <icon :icon="['far', 'sad-tear']" class="sad-tear" />
       <span> SHOPPING CART IS EMPTY </span>
       <p>You have no products in your shopping cart.</p>
       <router-link class="button-empty" to="/"> CONTINUE SHOPPING </router-link>
     </div>
     <div v-else>
       <div v-for="(item, index) in cartItens" :key="index">
-        <item-cart :item="item" :index="index"/>
+        <item-cart :item="item" :index="index" />
       </div>
     </div>
 
@@ -25,15 +25,15 @@ import { formatValue } from "../helpers";
 export default {
   name: "Cart",
   components: {
-    ItemCart: () => import("../components/ItemCart/ItemCart.vue"),
+    ItemCart: () => import("../components/ItemCart/ItemCart.vue")
   },
   computed: {
     ...mapState({
-      cartItens: (state) => state.cartItens,
-    }),
+      cartItens: state => state.cartItens
+    })
   },
   methods: {
-    total: (cartItens) => {
+    total: cartItens => {
       if (cartItens.length > 1) {
         let total = cartItens.reduce(
           (sum, cur) => sum + parseFloat(cur.subtotal),
@@ -44,8 +44,8 @@ export default {
         return cartItens[0].subtotal;
       }
     },
-    formatValue,
-  },
+    formatValue
+  }
 };
 </script>
 
@@ -115,8 +115,7 @@ export default {
 }
 
 .sad-tear {
-  height: 150px;
-  width: 150px;
+  font-size: 150px;
   margin-bottom: 30px;
   color: var(--light-grey);
 }
@@ -127,8 +126,7 @@ export default {
   }
 
   .sad-tear {
-    height: 100px;
-    width: 100px;
+    font-size: 100px;
   }
 
   .cart-container-empty span {
