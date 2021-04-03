@@ -1,41 +1,38 @@
 <template>
-
-    <div class="item-cart">
-      <ul>
-        <li>
-          <img :src="item.image" alt="watch" />
-        </li>
-        <li>
-          <product-info :name="item.name" :price="item.price"/>
-        </li>
-        <li>
-          <amount :quantity="item.quantityOnCart" :index="index"/>
-        </li>
-        <li>
-          <subtotal :subtotal="item.subtotal" :index="index"/>
-        </li>
-      </ul>
-    </div>
-
+  <div class="item-cart">
+    <ul>
+      <li>
+        <img :src="item.image" alt="watch" />
+      </li>
+      <li>
+        <product-info :name="item.name" :price="item.price" />
+      </li>
+      <li>
+        <amount :quantity="item.quantityOnCart" :index="index" />
+      </li>
+      <li>
+        <subtotal :subtotal="item.subtotal" :index="index" />
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
-
-import { formatValue } from "../../helpers";
+import { formatValue } from "@/helpers";
 export default {
   name: "ItemCart",
   props: {
     item: { type: Object, required: true },
-    index: { type: Number, required: true },
+    index: { type: Number, required: true }
   },
   methods: {
-    formatValue,
+    formatValue
   },
   components: {
-    Amount: () => import("./Amount"),
-    Subtotal: () => import("./Subtotal"),
-    ProductInfo: () => import("./ProductInfo"),
-  },
+    Amount: () => import("./components/AmountCart"),
+    Subtotal: () => import("./components/SubtotalCart"),
+    ProductInfo: () => import("./components/ProductInfoCart")
+  }
 };
 </script>
 
@@ -95,7 +92,6 @@ li img {
   ul li:last-child {
     border-bottom: 0;
   }
-
 }
 
 @media only screen and (max-width: 300px) {

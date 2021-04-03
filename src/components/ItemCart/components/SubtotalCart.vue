@@ -12,18 +12,18 @@
 
 <script>
 import { mapMutations } from "vuex";
-import { formatValue } from "../../helpers";
+import { formatValue } from "@/helpers";
 
 export default {
-  name: "Subtotal",
+  name: "SubtotalCart",
   props: {
     subtotal: { required: true },
-    index: { type: Number, required: true },
+    index: { type: Number, required: true }
   },
   methods: {
     ...mapMutations(["removeItemToCart"]),
-    formatValue,
-  },
+    formatValue
+  }
 };
 </script>
 
@@ -52,7 +52,7 @@ export default {
 }
 
 .remove-all-button:hover {
-    background: var(--primary-hover);
+  background: var(--primary-hover);
 }
 
 .price {
@@ -91,7 +91,7 @@ strong {
     justify-content: center;
     width: 100%;
   }
-  
+
   .price {
     display: flex;
     justify-content: center;

@@ -9,16 +9,16 @@
 </template>
 
 <script>
-import { formatValue } from "../../helpers";
+import { formatValue } from "@/helpers";
 export default {
-  name: "ProductInfo",
+  name: "ProductInfoCart",
   props: {
     name: { type: String, required: true },
-    price: { type: Number, required: true },
+    price: { type: Number, required: true }
   },
   methods: {
-    formatValue,
-  },
+    formatValue
+  }
 };
 </script>
 
@@ -30,7 +30,6 @@ export default {
 .price {
   font-weight: 600;
   font-size: 18px;
-  
 }
 
 .product-info-container div {
@@ -43,7 +42,8 @@ strong {
 }
 
 @media only screen and (max-width: 850px) {
-  .product-info-container, .product-info-container div {
+  .product-info-container,
+  .product-info-container div {
     display: flex;
     align-items: center;
     flex-direction: column;

@@ -16,14 +16,14 @@
 <script>
 import { mapMutations } from "vuex";
 export default {
-  name: "Amount",
+  name: "AmountCart",
   props: {
     quantity: { type: Number, required: true },
-    index: { type: Number, required: true },
+    index: { type: Number, required: true }
   },
   methods: {
-    ...mapMutations(["addOneToQuantity", "removeOneToQuantity"]),
-  },
+    ...mapMutations(["addOneToQuantity", "removeOneToQuantity"])
+  }
 };
 </script>
 

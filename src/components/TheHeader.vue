@@ -1,7 +1,7 @@
 <template>
   <header>
     <router-link class="logo" to="/">
-      <icon name="stopwatch" />Lokenoutte</router-link
+      <icon name="stopwatch" />Clocknoutte</router-link
     >
     <router-link class="cart" to="/cart">
       <p>My Cart</p>
@@ -18,15 +18,15 @@
 import { mapState } from "vuex";
 
 export default {
-  name: "AppHeader",
+  name: "TheHeader",
   computed: {
     ...mapState({
-      cartItens: (state) => state.cartItens,
-    }),
+      cartItens: state => state.cartItens
+    })
   },
   components: {
-    PopUp: () => import("./PopUp"),
-  },
+    PopUp: () => import("./PopUp")
+  }
 };
 </script>
 
