@@ -1,10 +1,12 @@
 <template>
   <div class="pop-up">
     <div class="item" v-for="(item, index) in cartItens" :key="index">
-      <img :src="item.image" :alt="item.name">
+      <img :src="item.image" :alt="item.name" />
       <div>
-      <p>{{item.name}}</p>
-      <p class="price"><span>{{item.quantityOnCart}}x</span>{{formatValue(item.price)}}</p>
+        <p>{{ item.name }}</p>
+        <p class="price">
+          <span>{{ item.quantityOnCart }}x</span>{{ formatValue(item.price) }}
+        </p>
       </div>
     </div>
   </div>
@@ -15,14 +17,14 @@ import { mapState } from "vuex";
 import { formatValue } from "../helpers";
 export default {
   name: "PopUp",
-    computed: {
+  computed: {
     ...mapState({
-      cartItens: (state) => state.cartItens,
-    }),
+      cartItens: state => state.cartItens
+    })
   },
-    methods: {
-    formatValue,
-  },
+  methods: {
+    formatValue
+  }
 };
 </script>
 
@@ -43,7 +45,7 @@ export default {
   visibility: hidden;
 }
 
-.pop-up img{
+.pop-up img {
   width: 50px;
   border: 1px solid var(--white-color);
   border-radius: 5px;
@@ -51,27 +53,27 @@ export default {
   background: var(--white-color);
 }
 
-.item{
+.item {
   display: flex;
   flex-direction: row;
   margin-top: 15px;
   align-items: center;
 }
 
-.item:first-child{
-   margin-top: 0px;
+.item:first-child {
+  margin-top: 0px;
 }
 
-.item p{
+.item p {
   font-size: 12px;
   margin-left: 10px;
 }
 
-.price{
+.price {
   font-weight: 700;
 }
 
-.price span{
+.price span {
   margin-right: 5px;
   font-size: 10px;
 }

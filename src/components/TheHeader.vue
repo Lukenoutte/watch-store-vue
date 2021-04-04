@@ -7,8 +7,8 @@
       <p>My Cart</p>
       <icon icon="shopping-cart" class="shopping-cart" />
 
-      <span>{{ cartItens.length }}</span>
-      <pop-up v-if="cartItens.length > 0" />
+      <span id="amount-cart">{{ cartItens.length }}</span>
+      <pop-up id="popup" v-if="cartItens.length > 0" />
     </router-link>
   </header>
 </template>
@@ -21,12 +21,12 @@ export default {
   name: "TheHeader",
   computed: {
     ...mapState({
-      cartItens: state => state.cartItens
-    })
+      cartItens: (state) => state.cartItens,
+    }),
   },
   components: {
-    PopUp: () => import("./PopUp")
-  }
+    PopUp: () => import("./PopUp"),
+  },
 };
 </script>
 
