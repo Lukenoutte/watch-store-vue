@@ -17,7 +17,7 @@ describe("Home.vue", () => {
   });
 
   test("Home items render ", () => {
-    expect(wrapper.findAll("#item").length).toBe(3);
+    expect(wrapper.findAll(".item-test").length).toBe(3);
   });
 });
 

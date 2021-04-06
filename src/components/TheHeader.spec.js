@@ -11,18 +11,19 @@ localVue.use(Vuex);
 let wrapper;
 
 describe("TheHeader.vue", () => {
-  test("TheHeader render ", () => {
+  beforeAll(() => {
     createWrapper();
+  });
+
+  test("TheHeader render ", () => {
     expect(wrapper).toBeTruthy();
   });
 
   test("Pop up render", () => {
-    createWrapper();
     expect(wrapper.find("#popup").exists()).toBe(true);
   });
 
   test("Amount itens on cart", () => {
-    createWrapper();
     expect(wrapper.find("#amount-cart").text()).toBe("1");
   });
 

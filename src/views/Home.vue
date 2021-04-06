@@ -2,7 +2,7 @@
   <div>
     <ul class="itens-ul">
       <li v-for="item in itensArray" :key="item.id">
-        <item-home id="item" :itemProp="item" />
+        <item-home class="item-test" :itemProp="item" />
       </li>
     </ul>
   </div>

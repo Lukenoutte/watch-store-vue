@@ -5,13 +5,13 @@
         <img :src="item.image" alt="watch" />
       </li>
       <li>
-        <product-info :name="item.name" :price="item.price" />
+        <product-info :name="item.name" :price="item.price" id="info" />
       </li>
       <li>
-        <amount :quantity="item.quantityOnCart" :index="index" />
+        <amount :quantity="item.quantityOnCart" :index="index" id="amount" />
       </li>
       <li>
-        <subtotal :subtotal="item.subtotal" :index="index" />
+        <subtotal :subtotal="item.subtotal" :index="index" id="subtotal" />
       </li>
     </ul>
   </div>
@@ -23,16 +23,16 @@ export default {
   name: "ItemCart",
   props: {
     item: { type: Object, required: true },
-    index: { type: Number, required: true }
+    index: { type: Number, required: true },
   },
   methods: {
-    formatValue
+    formatValue,
   },
   components: {
     Amount: () => import("./components/AmountCart"),
     Subtotal: () => import("./components/SubtotalCart"),
-    ProductInfo: () => import("./components/ProductInfoCart")
-  }
+    ProductInfo: () => import("./components/ProductInfoCart"),
+  },
 };
 </script>
 
