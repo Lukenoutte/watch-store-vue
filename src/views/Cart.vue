@@ -33,16 +33,8 @@ export default {
     })
   },
   methods: {
-    total: cartItens => {
-      if (cartItens.length > 1) {
-        let total = cartItens.reduce(
-          (sum, cur) => sum + parseFloat(cur.subtotal),
-          0
-        );
-        return total;
-      } else {
-        return cartItens[0].subtotal;
-      }
+    total (cartItens) {
+        return cartItens.reduce((sum, cur) => sum + parseFloat(cur.subtotal), 0);
     },
     formatValue
   }
